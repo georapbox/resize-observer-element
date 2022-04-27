@@ -1,0 +1,131 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #303942;
+  --link-color: #1a73e8;
+  --button-bg-color: var(--link-color);
+  --button-text-color: #ffffff;
+  --border-color: #d7dade;
+  --text-success: #198754;
+  --text-error: #dc3545;
+
+  --grip-dimension: 25px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #202125;
+    --text-color: #cccccc;
+    --link-color: #8ab4f8;
+    --button-bg-color: var(--link-color);
+    --button-text-color: #202125;
+    --border-color: #9194a0;
+    --text-success: #69d380;
+    --text-error: #fd7878;
+  }
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  padding: 1rem;
+}
+
+h1, h2, p {
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 768px;
+}
+
+@media screen and (max-width: 414px) {
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.3rem; }
+}
+
+code {
+  color: #d63384;
+  word-wrap: break-word;
+}
+
+.btn {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: 0;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  line-height: 1.5;
+  font-size: 1rem;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.success { color: var(--text-success); }
+.error { color: var(--text-error); }
+
+resize-observer .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 150px;
+  border: 2px dashed var(--border-color);
+  text-align: center;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  height: 100%;
+}
+
+.resizable {
+  position: relative;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  padding: 1.25rem calc(1.25rem + var(--grip-dimension)) calc(1.25rem + var(--grip-dimension)) 1.25rem;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  touch-action: none;
+}
+
+.resizable::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: var(--grip-dimension);
+  height: 100%;
+  background-color: var(--border-color);
+  background-image: url(assets/grip-vertical.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px;
+}
+
+.resizable::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: var(--grip-dimension);
+  background-color: var(--border-color);
+  background-image: url(assets/grip-horizontal.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 22px;
+}
