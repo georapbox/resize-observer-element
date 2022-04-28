@@ -57,7 +57,7 @@ All of the above properties reflect their values as HTML attributes to keep the 
 
 | Name | Description |
 | ---- | ----------- |
-| (default) | The element(s) to observe. |
+| (default) | The element(s) to observe. It can be one or more [Element](https://developer.mozilla.org/en-US/docs/Web/API/Element). |
 
 ### Events
 

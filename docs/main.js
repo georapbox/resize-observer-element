@@ -1,8 +1,8 @@
 import interact from 'https://cdn.interactjs.io/v1.10.11/interactjs/index.js';
-// import { ResizeObserverElement } from 'https://unpkg.com/@georapbox/resize-observer-element/dist/resize-observer-defined.min.js';
-import '../src/resize-observer-defined.js';
+import 'https://unpkg.com/@georapbox/resize-observer-element/dist/resize-observer-defined.min.js';
 
-const observerStatus = document.getElementById('observerStatus');
+const observerStatusEl = document.getElementById('observerStatus');
+const toggleObserverButton = document.getElementById('toggleObserver');
 const resizeObserverEl = document.querySelector('resize-observer');
 
 function handleResize(evt) {
@@ -44,17 +44,17 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
   });
 
-  document.getElementById('toggleObserver').addEventListener('click', evt => {
+  toggleObserverButton.addEventListener('click', evt => {
     resizeObserverEl.disabled = !resizeObserverEl.disabled;
 
     if (resizeObserverEl.disabled) {
       evt.target.textContent = 'Enable observer';
-      observerStatus.textContent = 'disabled';
-      observerStatus.className = 'error';
+      observerStatusEl.textContent = 'disabled';
+      observerStatusEl.className = 'error';
     } else {
       evt.target.textContent = 'Disable observer';
-      observerStatus.textContent = 'enabled';
-      observerStatus.className = 'success';
+      observerStatusEl.textContent = 'enabled';
+      observerStatusEl.className = 'success';
     }
   });
 });
