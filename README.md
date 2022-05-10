@@ -7,7 +7,7 @@
 [license]: https://georapbox.mit-license.org/@2022
 [changelog]: https://github.com/georapbox/resize-observer-element/blob/main/CHANGELOG.md
 
-# &lt;resize-observer&gt; element
+# &lt;resize-observer&gt;
 
 A custom element that offers a declarative interface to the [ResizeObserver API](https://developer.mozilla.org/docs/Web/API/ResizeObserver).
 
