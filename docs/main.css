@@ -31,14 +31,24 @@
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: var(--text-color);
   background-color: var(--bg-color);
   padding: 1rem;
 }
 
+input,
+button,
+select,
+optgroup,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
 h1, h2, p {
-  font-weight: 400;
+  font-weight: normal;
   margin-bottom: 1rem;
 }
 
