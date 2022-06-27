@@ -1,6 +1,6 @@
 {
   "name": "@georapbox/resize-observer-element",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A custom element that offers a declarative interface to the ResizeObserver API.",
   "main": "dist/resize-observer.min.js",
   "module": "dist/resize-observer.min.js",

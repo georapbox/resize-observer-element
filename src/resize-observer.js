@@ -40,6 +40,7 @@ class ResizeObserverElement extends HTMLElement {
       this._resizeObserver = new ResizeObserver(entries => {
         this.dispatchEvent(new CustomEvent('resize-observer:resize', {
           bubbles: true,
+          composed: true,
           detail: { entries }
         }));
       });
