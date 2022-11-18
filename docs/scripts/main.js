@@ -1,7 +1,7 @@
 import interact from 'https://cdn.interactjs.io/v1.10.11/interactjs/index.js';
 
 const isLocalhost = window.location.href.includes('127.0.0.1') || window.location.href.includes('localhost');
-const componentUrl = isLocalhost ? '../../src/resize-observer-defined.js' : 'https://unpkg.com/@georapbox/resize-observer-element/dist/resize-observer-defined.min.js';
+const componentUrl = isLocalhost ? '../../dist/resize-observer-defined.js' : 'https://unpkg.com/@georapbox/resize-observer-element/dist/resize-observer-defined.js';
 
 import(componentUrl).then(() => {
   const observerStatusEl = document.getElementById('observerStatus');

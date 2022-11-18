@@ -24,7 +24,7 @@ $ npm install --save @georapbox/resize-observer-element
 ### Script
 
 ```js
-import { ResizeObserverElement } from './node_modules/@georapbox/resize-observer-element/dist/resize-observer.min.js';
+import { ResizeObserverElement } from './node_modules/@georapbox/resize-observer-element/dist/resize-observer.js';
 
 // Manually define the element.
 ResizeObserverElement.defineCustomElement();
@@ -33,7 +33,7 @@ ResizeObserverElement.defineCustomElement();
 Alternatively, you can import the automatically defined custom element.
 
 ```js
-import './node_modules/@georapbox/resize-observer-element/dist/resize-observer-defined.min.js';
+import './node_modules/@georapbox/resize-observer-element/dist/resize-observer-defined.js';
 ```
 
 ### Markup

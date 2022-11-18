@@ -8,6 +8,10 @@ template.innerHTML = html`
 `;
 
 class ResizeObserverElement extends HTMLElement {
+  #slotEl;
+  #resizeObserver;
+  #observedElements;
+
   constructor() {
     super();
 
@@ -16,13 +20,9 @@ class ResizeObserverElement extends HTMLElement {
       this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
 
-    this._slot = this.shadowRoot.querySelector('slot');
-    this._resizeObserver = null;
-    this._observedElements = [];
-
-    this._onSlotChange = this._onSlotChange.bind(this);
-
-    this._upgradeProperty('disabled');
+    this.#slotEl = this.shadowRoot.querySelector('slot');
+    this.#resizeObserver = null;
+    this.#observedElements = [];
   }
 
   static get observedAttributes() {
@@ -31,13 +31,15 @@ class ResizeObserverElement extends HTMLElement {
 
   attributeChangedCallback(name, oldValue, newValue) {
     if (name === 'disabled' && oldValue !== newValue) {
-      this.disabled ? this._stopObserver() : this._startObserver();
+      this.disabled ? this.#stopObserver() : this.#startObserver();
     }
   }
 
   connectedCallback() {
+    this.#upgradeProperty('disabled');
+
     if ('ResizeObserver' in window) {
-      this._resizeObserver = new ResizeObserver(entries => {
+      this.#resizeObserver = new ResizeObserver(entries => {
         this.dispatchEvent(new CustomEvent('resize-observer:resize', {
           bubbles: true,
           composed: true,
@@ -46,16 +48,16 @@ class ResizeObserverElement extends HTMLElement {
       });
 
       if (!this.disabled) {
-        this._startObserver();
+        this.#startObserver();
       }
 
-      this._slot.addEventListener('slotchange', this._onSlotChange);
+      this.#slotEl.addEventListener('slotchange', this.#onSlotChange);
     }
   }
 
   disconnectedCallback() {
-    this._stopObserver();
-    this._slot.removeEventListener('slotchange', this._onSlotChange);
+    this.#stopObserver();
+    this.#slotEl.removeEventListener('slotchange', this.#onSlotChange);
   }
 
   get disabled() {
@@ -70,31 +72,31 @@ class ResizeObserverElement extends HTMLElement {
     }
   }
 
-  _startObserver() {
-    if (!this._slot || !this._resizeObserver) {
+  #startObserver() {
+    if (!this.#slotEl || !this.#resizeObserver) {
       return;
     }
 
-    this._observedElements.forEach(el => this._resizeObserver.unobserve(el));
-    this._observedElements = [];
+    this.#observedElements.forEach(el => this.#resizeObserver.unobserve(el));
+    this.#observedElements = [];
 
-    this._slot.assignedElements().forEach(el => {
-      this._resizeObserver.observe(el);
-      this._observedElements.push(el);
+    this.#slotEl.assignedElements().forEach(el => {
+      this.#resizeObserver.observe(el);
+      this.#observedElements.push(el);
     });
   }
 
-  _stopObserver() {
-    this._resizeObserver && this._resizeObserver.disconnect();
+  #stopObserver() {
+    this.#resizeObserver && this.#resizeObserver.disconnect();
   }
 
-  _onSlotChange() {
+  #onSlotChange = () => {
     if (!this.disabled) {
-      this._startObserver();
+      this.#startObserver();
     }
-  }
+  };
 
-  _upgradeProperty(prop) {
+  #upgradeProperty(prop) {
     if (Object.prototype.hasOwnProperty.call(this, prop)) {
       const value = this[prop];
       delete this[prop];
