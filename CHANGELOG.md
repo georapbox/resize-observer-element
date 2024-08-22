@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## v2.0.1 (2024-08-21)
+## v2.0.1 (2024-08-22)
 
 - Add type definitions for TypeScript.
 - Replace parcel with esbuild for bundling.
