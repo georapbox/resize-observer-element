@@ -38,7 +38,9 @@ import './node_modules/@georapbox/resize-observer-element/dist/resize-observer-d
 
 ```html
 <resize-observer>
-  <div>Element to observe for resizing</div>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+  <p>Quas quo aliquam iure ipsa laborum! Deleniti doloremque quaerat sunt, esse fugit.</p>
+  <p>Molestias, libero laborum minus facere ullam iusto eius in adipisci quaerat autem placeat quisquam.</p>
 </resize-observer>
 ```
 
@@ -49,23 +51,23 @@ import './node_modules/@georapbox/resize-observer-element/dist/resize-observer-d
 | ---- | -------- | ---- | ------- | ----------- |
 | `disabled` | ✓ | Boolean | `false` | Defines if the resize observer is disabled or not. |
 
-All of the above properties reflect their values as HTML attributes to keep the element's DOM representation in sync with its JavaScript state.
-
 ### Slots
 
 | Name | Description |
 | ---- | ----------- |
-| (default) | The element(s) to observe. It can be one or more [Element](https://developer.mozilla.org/en-US/docs/Web/API/Element). |
+| (default) | The default slot where the elements to observe are placed. |
+
+### Methods
+
+| Name | Type | Description | Arguments |
+| ---- | ---- | ----------- | --------- |
+| `defineCustomElement` | Static | Defines/registers the custom element with the name provided. If no name is provided, the default name is used. The method checks if the element is already defined, hence will skip trying to redefine it. | `elementName='resize-observer'` |
 
 ### Events
 
-`resize-observer:resize` - Emitted when the element is resized. A list of [ResizeObserverEntry](https://developer.mozilla.org/docs/Web/API/ResizeObserverEntry) objects is attached to `event.detail`, with information about the target element and its dimensions.
-
-```js
-document.querySelector('resize-observer').addEventListener('resize-observer:resize', evt => {
-  console.log(evt.detail); // => { entries: [ResizeObserverEntry] }
-});
-```
+| Name | Description | Event Detail |
+| ---- | ----------- | ------------ |
+| `resize-observer:resize` | Emitted when the element is resized. | `{ entries: ResizeObserverEntry[]` |
 
 ## Changelog
 
