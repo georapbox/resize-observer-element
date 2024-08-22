@@ -2,9 +2,7 @@
 [![npm license](https://img.shields.io/npm/l/@georapbox/resize-observer-element.svg)](https://www.npmjs.com/package/@georapbox/resize-observer-element)
 
 [demo]: https://georapbox.github.io/resize-observer-element/
-[support]: https://caniuse.com/#feat=custom-elementsv1
-[polyfill]: https://github.com/webcomponents/polyfills/tree/master/packages/custom-elements
-[license]: https://georapbox.mit-license.org/@2022
+[license]: https://github.com/georapbox/resize-observer-element/blob/main/LICENSE
 [changelog]: https://github.com/georapbox/resize-observer-element/blob/main/CHANGELOG.md
 
 # &lt;resize-observer&gt;
@@ -73,14 +71,52 @@ document.querySelector('resize-observer').addEventListener('resize-observer:resi
 
 For API updates and breaking changes, check the [CHANGELOG][changelog].
 
-## Browser support
+## Development setup
 
-Browsers without native [custom element support][support] require a [polyfill][polyfill].
+### Prerequisites
 
-- Firefox
-- Chrome
-- Microsoft Edge
-- Safari
+The project requires `Node.js` and `npm` to be installed on your environment. Preferrably, use [nvm](https://github.com/nvm-sh/nvm) Node Version Manager and use the version of Node.js specified in the `.nvmrc` file by running `nvm use`.
+
+### Install dependencies
+
+Install the project dependencies by running the following command.
+
+```sh
+npm install
+```
+
+### Build for development
+
+Watch for changes and start a development server by running the following command.
+
+```sh
+npm start
+```
+
+### Linting
+
+Lint the code by running the following command.
+
+```sh
+npm run lint
+```
+
+### Testing
+
+Run the tests by running any of the following commands.
+
+```sh
+npm test
+npm run test:watch # watch mode
+```
+
+### Build for production
+
+Create a production build by running the following command.
+
+```sh
+npm run build
+```
 
 ## License
 

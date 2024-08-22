@@ -6,50 +6,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>&lt;resize-observer&gt;</title>
   <meta name="description" content="A custom element that offers a declarative interface to the ResizeObserver API.">
+  <meta name="color-scheme" content="light dark">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="stylesheet" href="lib/highlight/highlight-github.css">
   <link rel="stylesheet" href="css/water.css">
   <link rel="stylesheet" href="css/main.css">
   <script type="module" src="js/main.js"></script>
+  <script src="lib/highlight/highlight.min.js" defer></script>
 </head>
 <body>
+  <noscript>
+    <div class="noscript-banner">
+      This page requires JavaScript to work properly.
+      Please enable JavaScript in your browser settings.
+    </div>
+  </noscript>
+
   <h1>&lt;resize-observer&gt;</h1>
 
-  <p>A custom element that offers a declarative interface to the <a href="https://developer.mozilla.org/docs/Web/API/ResizeObserver" target="_blank" rel="noreferrer noopener">ResizeObserver API</a>.</p>
-
-  <h2>Example</h2>
-
-  <div class="alert alert-info">
-    Open the browser's console to watch the emitted resize events.
+  <div class="component-description">
+    <p>A custom element that offers a declarative interface to the <a href="https://developer.mozilla.org/docs/Web/API/ResizeObserver" target="_blank" rel="noreferrer noopener">ResizeObserver API</a>.</p>
+    <p><a href="https://github.com/georapbox/resize-observer-element" target="_blank" rel="noreferrer noopener">Source code & documentation</a>.</p>
   </div>
 
-  <div id="resizeElement" class="resizable">
+  <h2>Demo</h2>
+
+  <div id="resizeElement" class="resizable resizable--loading">
     <resize-observer>
       <div class="container">
-        Resize this box and check the console.
+        Resize this box and check the browser's console for emitted events.
         <code class="width"></code>
         <code class="height"></code>
       </div>
     </resize-observer>
   </div>
 
-  <button type="button" class="btn" id="toggleObserver">
+  <button type="button" id="toggleObserver" style="margin: 0;">
     Disable observer
   </button>
 
-  <p>
-    Resize observer is <strong id="observerStatus" class="success">enabled</strong>.
-  </p>
+  <details open>
+      <summary>Source code</summary>
+<pre><code>&lt;resize-observer&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas magni assumenda facilis praesentium?&lt;/p&gt;
+  &lt;p&gt;Distinctio ad laboriosam, maxime, asperiores odio doloribus nisi numquam quibusdam molestias repellendus, earum ipsam pariatur ipsum natus?&lt;/p&gt;
+  &lt;p&gt;Ut nemo molestiae aspernatur consectetur impedit, culpa cumque qui numquam itaque recusandae sunt aut repellat dolore autem libero vel praesentium consequatur?&lt;/p&gt;
+  &lt;p&gt;Minima ea tempore accusantium dicta aliquid incidunt vitae corporis.&lt;/p&gt;
+  &lt;p&gt;Repudiandae libero laborum delectus veniam nulla, dolore ducimus minus autem, quisquam qui sint esse eum quia, excepturi dolores!&lt;/p&gt;
+  &lt;p&gt;Accusamus dolores illo, obcaecati labore delectus impedit error debitis ipsum officia iure!&lt;/p&gt;
+&lt;/resize-observer&gt;
 
-  <h2>Source</h2>
+&lt;script&gt;
+  const el = document.querySelector('resize-observer');
 
-  <p>
-    Source code and documentation can be found in <a href="https://github.com/georapbox/resize-observer-element" target="_blank" rel="noreferrer noopener">Github repository</a>.
-  </p>
+  el.addEventListener('resize-observer:resize', evt => {
+    console.log('resize-observer:resize ->', evt.detail);
+  });
+&lt;/script&gt;</code></pre>
+  </details>
 
   <h2>License</h2>
 
   <p>
-    <a href="https://georapbox.mit-license.org/@2022" target="_blank" rel="noreferrer noopener">The MIT License (MIT)</a>
+    <a href="https://github.com/georapbox/resize-observer-element/blob/main/LICENSE" target="_blank" rel="noreferrer noopener">
+      The MIT License (MIT)
+    </a>
   </p>
 </body>
 </html>
